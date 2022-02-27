@@ -1,0 +1,87 @@
+import java.util.Scanner;
+
+public class binaryWatch {
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        String number = scn.nextLine();
+
+        char[] array_numbers = number.toCharArray();
+        int[] array_digits = new int[4];
+
+        for(int i = 0 ; i<4 ; i++)
+            array_digits[i] = array_numbers[i]-'0';
+        int[][] array_matrix = new int[4][4];
+
+        for(int i = 0 ; i<4 ; i++)
+        {
+
+            if(array_digits[i]==1)
+            {
+                array_matrix[3][i]=1;
+            }
+
+            if(array_digits[i]==2)
+            {
+                array_matrix[2][i]=1;
+            }
+
+            if(array_digits[i]==3)
+            {
+                array_matrix[2][i]=1;
+                array_matrix[3][i]=1;
+            }
+
+            if(array_digits[i]==4)
+            {
+                array_matrix[1][i]=1;
+            }
+
+            if(array_digits[i]==5)
+            {
+                array_matrix[3][i]=1;
+                array_matrix[1][i]=1;
+            }
+
+            if(array_digits[i]==6)
+            {
+                array_matrix[1][i]=1;
+                array_matrix[2][i]=1;
+
+            }
+
+            if(array_digits[i]==7)
+            {
+                array_matrix[1][i]=1;
+                array_matrix[2][i]=1;
+                array_matrix[3][i]=1;
+            }
+
+            if(array_digits[i]==8)
+            {
+                array_matrix[0][i]=1;
+            }
+
+            if(array_digits[i]==9)
+            {
+                array_matrix[0][i]=1;
+                array_matrix[3][i]=1;
+            }
+        }
+        for(int i = 0 ; i<4 ; i++)
+        {
+            for(int j=  0 ; j<4 ; j++)
+            {
+                if(array_matrix[i][j]==0)
+                    System.out.print(".");
+                else
+                    System.out.print("*");
+                if(j==1)
+                    System.out.print("   ");
+                else if(j<3)
+                    System.out.print(" ");
+            }
+            System.out.println();
+        }
+
+    }
+}
